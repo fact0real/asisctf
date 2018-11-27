@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -- encoding: UTF-8 --
-# In the name of Allah
 
 from fractions import gcd
 import sys, os, signal, string, inspect
@@ -19,7 +18,7 @@ def PoW():
     HASH = [sha224, sha256, sha384, sha512]
     r = getRandomRange(0, 3)
     X = genrandstr(10)
-    bound = 7
+    bound = 6 # after runing the CTF, I will decrease to 6!
     pr("Submit a printable string X, such that", HASH[r].__name__ + "(X)[-" + str(bound) + ":] =", HASH[r](X).hexdigest()[-bound:]) 
     Y = sc()
     return isprintable(Y) and HASH[r](Y).hexdigest()[-bound:] == HASH[r](X).hexdigest()[-bound:]
